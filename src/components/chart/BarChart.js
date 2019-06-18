@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types/prop-types';
 import * as d3 from 'd3';
 
 class BarChart extends React.Component {
@@ -23,9 +23,9 @@ class BarChart extends React.Component {
       .enter()
       .append("rect")
       .attr("x", (d, i) => i * 70)
-      .attr("y", (d, i) => h - 10 * d)
+      .attr("y", (d) => h - 10 * d)
       .attr("width", 65)
-      .attr("height", (d, i) => d * 10)
+      .attr("height", (d) => d * 10)
       .attr("fill", "green");
 
     svg.selectAll("text")
@@ -45,7 +45,8 @@ class BarChart extends React.Component {
 BarChart.propTypes = {
   data: PropTypes.array.isRequired,
   height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired
+  width: PropTypes.number.isRequired,
+  id: PropTypes.string
 };
 
 export default BarChart;
